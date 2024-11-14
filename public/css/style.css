@@ -1,0 +1,179 @@
+body {
+    font-family: "Trirong", serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fdf6e3;
+        /* Soft beige */
+} 
+.container {
+    flex: 1;
+    background-color: #f0f4f8;
+        /* Light blue-gray */
+    }
+.navbar {
+    height: 5rem;
+}
+
+.fa-soundcloud {
+    color: rgb(106, 136, 170);
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: peru !important;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: black !important;
+}
+
+.f-info-links a:hover {
+    color: burlywood !important;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+    background-color: #f5f5f5;
+        /* Soft gray */
+        border-radius: 1rem;
+}
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    text-decoration: none;
+    color: black !important;
+}
+
+/* Card Effect */
+.card-img-overlay {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-img-overlay:hover {
+    opacity: 0.1;
+    background-color: white;
+    
+}
+
+/* Edit page */
+.add-btn,
+.edit-btn,
+.delete-btn {
+    background-color: rgb(106, 136, 170) !important;
+    border: none !important;
+}
+
+/* show page */
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+body {
+    font-family: "Trirong", serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 8rem;
+    /* Space for footer to prevent overlap */
+    background-color: #fdf6e3;
+    /* Optional comfortable background color */
+}
+
+.f-info {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 8rem;
+    background-color: aliceblue;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Keeps footer on top */
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    color: rgb(106, 136, 170);
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: black !important;
+}
+
+.f-info-links a:hover {
+    color: burlywood !important;
+}
+
+.f-info-socials,
+.f-info-links,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* map */
+#map {
+    height: 400px;
+    width: 100%;
+    /* Make sure the map takes up full width of the parent */
+    max-width: 115vh;
+    /* Optional limit for large screens */
+}

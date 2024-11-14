@@ -1,0 +1,81 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <h3 class="text-center mb-4"><b>Create a New Listing</b></h3>
+                    <form method="POST" action="/listings" novalidate class="needs-validation"
+                        enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <label for="title" class="form-label"><b>Title</b></label>
+                            <input name="listing[title]" placeholder="Enter title" type="text" class="form-control"
+                                required />
+                            <div class="valid-feedback">Title looks good!</div>
+                            <div class="invalid-feedback">Please enter a title</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label"><b>Description</b></label>
+                            <textarea name="listing[description]" class="form-control"
+                                placeholder="Enter a detailed description" rows="4" required></textarea>
+                            <div class="invalid-feedback">Please enter a description</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label"><b>Upload Listing Image</b></label>
+                            <input name="listing[image]" type="file" class="form-control" required />
+                            <div class="invalid-feedback">Please upload an image for the listing</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="license" class="form-label"><b>License No.</b></label>
+                                <input name="listing[license]" placeholder="Enter license no" type="text"
+                                    class="form-control" required />
+                                <div class="invalid-feedback">Please enter a valid license number</div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="storeType" class="form-label"><b>Type of Store</b></label>
+                                <select name="listing[storeType]" id="storeType" class="form-select" required>
+                                    <option value="">Select...</option>
+                                    <option value="grocery">Grocery store</option>
+                                    <option value="x-rox">X-rox store</option>
+                                    <option value="book">Book store</option>
+                                    <option value="meat">Meat shop</option>
+                                    <option value="fish">Fish shop</option>
+                                    <option value="electrical">Electrical store</option>
+                                    <option value="shoe">Shoe shop</option>
+                                    <option value="machine">Machine Repairing shop</option>
+                                    <option value="cycle">Cycle Repairing shop</option>
+                                    <option value="salon">Salon shop</option>
+                                    <option value="mobile">Mobile Repairing shop</option>
+                                    <option value="medicine">Medicine shop</option>
+                                    <option value="cloth">Cloth store</option>
+                                    <option value="jewelry">Jewelry store</option>
+                                    <option value="stationary">Stationary shop</option>
+                                    <option value="food">Varieties Food shop</option>
+                                    <option value="oil">Indian Oil</option>
+                                    <option value="atm">ATM</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a valid store type</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="location" class="form-label"><b>Location</b></label>
+                            <input name="listing[location]" placeholder="Enter location" type="text"
+                                class="form-control" required />
+                            <div class="invalid-feedback">Please enter a valid location</div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary add-btn w-100">Add Listing</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>

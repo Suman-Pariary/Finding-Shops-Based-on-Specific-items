@@ -1,0 +1,161 @@
+<style>
+    /* Button Styles */
+    .search-btn {
+        background-color: rgb(106, 136, 170);
+        color: #ffffff;
+        border-radius: 25px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .search-btn:hover {
+        background-color: rgb(85, 115, 150);
+        transform: scale(1.05);
+        color: #ffffff;
+    }
+
+    .search-btn i {
+        display: inline;
+        margin-right: 0.5rem;
+    }
+
+    /* Input Styles */
+    .search-inp {
+        border-radius: 25px;
+        padding: 0.5rem 2.5rem;
+        font-size: 1rem;
+        border: 2px solid #ddd;
+        width: 250px;
+        transition: border-color 0.3s ease;
+    }
+
+    .search-inp:focus {
+        border-color: rgb(106, 136, 170);
+        outline: none;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(90, 156, 218, 0.1);
+        padding: 0.8rem 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: rgb(106, 136, 170);
+    }
+
+    .navbar-brand:hover {
+        color: rgb(85, 115, 150);
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #333;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: rgb(106, 136, 170);
+    }
+
+    .navbar-nav.ms-auto {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-toggler-icon {
+        background-color: rgb(106, 136, 170);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .search-inp {
+            width: 200px;
+        }
+
+        .navbar-nav.ms-auto {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .navbar-nav .nav-link {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .navbar-nav .nav-link:last-child {
+            margin-bottom: 10px;
+        }
+
+        .search-inp,
+        .search-btn {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .search-btn {
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            width: 100%;
+        }
+    }
+
+    /* Adjustments for smaller screens */
+    @media (max-width: 576px) {
+        .navbar-brand {
+            font-size: 1.2rem;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<nav class="navbar navbar-expand-md navbar-light border-bottom sticky-top" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/listings"><i class="fa-brands fa-soundcloud"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <!-- <a class="nav-link" href="/">Home</a> -->
+                <a class="nav-link" href="/listings">Home</a>
+            </div>
+
+            <div class="navbar-nav ms-auto">
+                <form class="d-flex">
+                    <input class="form-control me-2 search-inp" type="search" placeholder="Search Product..."
+                        name="search">
+                    <button class="btn search-btn" type="submit" value="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>Search
+                    </button>
+                </form>
+            </div>
+
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new">Add new listing</a>
+                <% if(!currUser) { %>
+                    <a class="nav-link" href="/signup"><b>Sign up</b></a>
+                    <a class="nav-link" href="/login"><b>Log in</b></a>
+                    <% } %>
+                        <% if(currUser) { %>
+                            <a class="nav-link" href="/logout"><b>Log out</b></a>
+                            <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

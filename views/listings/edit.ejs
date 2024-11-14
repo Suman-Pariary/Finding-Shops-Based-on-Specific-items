@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h3 class="text-center mb-4"><b><u>Edit this Listing</u></b></h3>
+                    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate
+                        class="needs-validation" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="title" class="form-label"><b>Title</b></label>
+                            <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control"
+                                required />
+                            <div class="invalid-feedback">Please provide a title.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label"><b>Description</b></label>
+                            <textarea name="listing[description]" class="form-control"
+                                required><%= listing.description %></textarea>
+                            <div class="invalid-feedback">Please provide a description.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <b>Original Listing Image</b><br>
+                            <img src="<%= orginalImageUrl %>" alt="Original Listing Image"
+                                class="img-fluid rounded my-2" style="max-height: 200px; object-fit: cover;" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label"><b>Upload New Image</b></label>
+                            <input name="listing[image]" type="file" class="form-control" />
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label for="license" class="form-label"><b>License No:</b></label>
+                                <input name="listing[license]" value="<%= listing.license %>" type="text"
+                                    class="form-control" required />
+                                <div class="invalid-feedback">Please provide a license number.</div>
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                                <label for="storeType" class="form-label"><b>Type of Store</b></label>
+                                <select name="listing[storeType]" id="storeType" class="form-select" required>
+                                    <option value="">Select...</option>
+                                    <option value="grocery">Grocery Store</option>
+                                    <option value="x-rox">X-rox Store</option>
+                                    <option value="book">Book Store</option>
+                                    <option value="meat">Meat Shop</option>
+                                    <option value="fish">Fish Shop</option>
+                                    <option value="electrical">Electrical Store</option>
+                                    <option value="shoe">Shoe Shop</option>
+                                    <option value="machine">Machine Repairing Shop</option>
+                                    <option value="cycle">Cycle Repairing Shop</option>
+                                    <option value="salon">Salon Shop</option>
+                                    <option value="mobile">Mobile Repairing Shop</option>
+                                    <option value="medicine">Medicine Shop</option>
+                                    <option value="cloth">Cloth Store</option>
+                                    <option value="jewelry">Jewelry Store</option>
+                                    <option value="stationary">Stationary Shop</option>
+                                    <option value="food">Variety Food Shop</option>
+                                    <option value="oil">Indian Oil</option>
+                                    <option value="atm">ATM</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a valid store type.</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="location" class="form-label"><b>Location</b></label>
+                            <input name="listing[location]" value="<%= listing.location %>" type="text"
+                                class="form-control" required />
+                            <div class="invalid-feedback">Please provide a location.</div>
+                        </div>
+
+                        <button class="btn btn-primary w-100 mt-3">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>

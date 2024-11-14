@@ -1,0 +1,308 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <style>
+            /* Filters Carousel */
+            #filters-carousel {
+                display: flex;
+                overflow: hidden;
+                width: 100%;
+                position: relative;
+                padding: 1rem 0;
+                background-color: #f8f9fa;
+            }
+
+            #filters {
+                display: flex;
+                transition: transform 0.3s ease;
+            }
+
+            .filter {
+                min-width: 100px;
+                text-align: center;
+                opacity: 0.8;
+                margin: 0 1rem;
+                padding: 0.5rem;
+                border-radius: 8px;
+                background-color: #fff;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .filter:hover {
+                opacity: 1;
+                cursor: pointer;
+                background-color: #5786b9;
+                color: white;
+            }
+
+            .carousel-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 2rem;
+                background: rgba(255, 255, 255, 0.7);
+                border: none;
+                cursor: pointer;
+                z-index: 1;
+                padding: 0.5rem;
+                border-radius: 50%;
+            }
+
+            .carousel-arrow.left {
+                left: 0;
+            }
+
+            .carousel-arrow.right {
+                right: 0;
+            }
+
+            /* Listing Cards */
+            .listing-card {
+                margin-bottom: 1.5rem;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+
+            .listing-card:hover {
+                transform: scale(1.05);
+            }
+
+            .card-img-top {
+                height: 20rem;
+                object-fit: cover;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+                background-color: #fff;
+                text-align: center;
+            }
+
+            .card-text {
+                margin: 0;
+            }
+
+            .listing-link {
+                text-decoration: none;
+            }
+
+            .card-img-overlay {
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                font-size: 1.2rem;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            /* Responsive Styles */
+            /* Filters Carousel */
+            @media (max-width: 768px) {
+                #filters-carousel {
+                    padding: 1rem 0;
+                }
+
+                .filter {
+                    min-width: 80px;
+                    margin: 0 0.5rem;
+                    padding: 0.3rem;
+                }
+
+                .carousel-arrow {
+                    font-size: 1.5rem;
+                    padding: 0.3rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .filter {
+                    min-width: 60px;
+                    margin: 0 0.3rem;
+                    padding: 0.3rem;
+                }
+
+                .carousel-arrow {
+                    font-size: 1.2rem;
+                    padding: 0.3rem;
+                }
+            }
+
+            /* Listings Grid */
+            @media (max-width: 768px) {
+                .row {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+
+                .listing-card {
+                    width: 48%;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .row {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .listing-card {
+                    width: 90%;
+                }
+
+                .card-img-top {
+                    height: 15rem;
+                }
+            }
+        </style>
+
+        <!-- Filters Carousel -->
+        <div id="filters-carousel">
+            <button class="carousel-arrow left" onclick="slideLeft()">&#10094;</button>
+
+            <div id="filters">
+                <!-- Filter icons (shop categories) -->
+                <div class="filter" data-shop-type="x-erox">
+                    <div><i class="fa-regular fa-newspaper"></i></div>
+                    <p>X-erox</p>
+                </div>
+                <div class="filter" data-shop-type="book">
+                    <div><i class="fa-solid fa-book-atlas"></i></div>
+                    <p>Book</p>
+                </div>
+                <div class="filter" data-shop-type="grocery">
+                    <div><i class="fa-solid fa-basket-shopping"></i></div>
+                    <p>Grocery</p>
+                </div>
+                <div class="filter" data-shop-type="meat">
+                    <div><i class="fa-solid fa-drumstick-bite"></i></div>
+                    <p>Meat</p>
+                </div>
+                <div class="filter" data-shop-type="fish">
+                    <div><i class="fa-solid fa-fish-fins"></i></div>
+                    <p>Fish</p>
+                </div>
+                <div class="filter" data-shop-type="electrical">
+                    <div><i class="fa-solid fa-lightbulb"></i></div>
+                    <p>Electrical</p>
+                </div>
+                <div class="filter" data-shop-type="shoe">
+                    <div><i class="fa-solid fa-shoe-prints"></i></div>
+                    <p>Shoe</p>
+                </div>
+                <div class="filter" data-shop-type="machine">
+                    <div><i class="fa-regular fa-hard-drive"></i></div>
+                    <p>Machine</p>
+                </div>
+                <div class="filter" data-shop-type="cycle">
+                    <div><i class="fa-solid fa-bicycle"></i></div>
+                    <p>Cycle</p>
+                </div>
+                <div class="filter" data-shop-type="salon">
+                    <div><i class="fa-solid fa-wheelchair"></i></div>
+                    <p>Salon</p>
+                </div>
+                <div class="filter" data-shop-type="mobile">
+                    <div><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <p>Mobile</p>
+                </div>
+                <div class="filter" data-shop-type="medicine">
+                    <div><i class="fa-solid fa-house-chimney-medical"></i></div>
+                    <p>Medicine</p>
+                </div>
+                <div class="filter" data-shop-type="cloth">
+                    <div><i class="fa-solid fa-shirt"></i></div>
+                    <p>Cloth</p>
+                </div>
+                <div class="filter" data-shop-type="jewelry">
+                    <div><i class="fa-solid fa-gem"></i></div>
+                    <p>Jewelry</p>
+                </div>
+                <div class="filter" data-shop-type="stationary">
+                    <div><i class="fa-solid fa-user-tie"></i></div>
+                    <p>Stationary</p>
+                </div>
+                <div class="filter" data-shop-type="food">
+                    <div><i class="fa-solid fa-utensils"></i></div>
+                    <p>Food</p>
+                </div>
+                <div class="filter" data-shop-type="oil">
+                    <div><i class="fa-solid fa-gas-pump"></i></div>
+                    <p>Indian Oil</p>
+                </div>
+                <div class="filter" data-shop-type="atm">
+                    <div><i class="fa-brands fa-cc-visa"></i></div>
+                    <p>ATM</p>
+                </div>
+            </div>
+
+            <button class="carousel-arrow right" onclick="slideRight()">&#10095;</button>
+        </div>
+
+        <!-- Listings Grid -->
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
+            <% for (let listing of allListings) { %>
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="card col listing-card" data-shop-type="<%= listing.storeType %>">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" />
+                        <div class="card-img-overlay">
+                            <b>Welcome</b>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>
+                                    <%= listing.title %>
+                                </b><br>
+                                <!-- <b>Place:</b> -->
+                                <%= listing.location %>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+
+        <script>
+            let scrollAmount = 0;
+            const filters = document.getElementById('filters');
+            const filterWidth = 120;
+            const totalItems = filters.children.length;
+
+            function slideRight() {
+                scrollAmount += filterWidth;
+                if (scrollAmount >= totalItems * filterWidth) {
+                    scrollAmount = 0;
+                }
+                filters.style.transform = `translateX(-${scrollAmount}px)`;
+            }
+
+            function slideLeft() {
+                scrollAmount -= filterWidth;
+                if (scrollAmount < 0) {
+                    scrollAmount = (totalItems - 1) * filterWidth;
+                }
+                filters.style.transform = `translateX(-${scrollAmount}px)`;
+            }
+
+            // Filtering shops by type on icon click
+            document.querySelectorAll('.filter').forEach(icon => {
+                icon.addEventListener('click', function () {
+                    const storeType = this.getAttribute('data-shop-type');
+                    filterStoresByType(storeType);
+                });
+            });
+
+            function filterStoresByType(storeType) {
+                const allListings = document.querySelectorAll('.listing-card');
+                allListings.forEach(listing => {
+                    const listingType = listing.getAttribute('data-shop-type');
+                    if (listingType === storeType || storeType === 'All') {
+                        listing.style.display = 'block';
+                    } else {
+                        listing.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+    </body>

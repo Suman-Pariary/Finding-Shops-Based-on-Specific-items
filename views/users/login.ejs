@@ -1,0 +1,85 @@
+
+<!-- 
+
+    <div class="row mt-3">
+        <h1 class="text-center"><b><u>Login</u></b></h1>
+        <div class="col-6 offset-3">
+            <form action="/login" method="POST" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label"><b>Username</b></label>
+                    <input name="username" id="username" placeholder="Username" type="text" class="form-control"
+                    required />
+                </div>    
+                <div class="mb-3">
+                    <label for="password" class="form-label"><b>Password</b></label>
+                    <input name="password" id="password" placeholder="Password" type="password"
+                    class="form-control" 
+                    required />
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-success">Login</button>
+                </div>
+            </form>
+        </div>
+    </div> -->
+
+
+<% layout("/layouts/boilerplate") %>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-lg p-4">
+                    <h1 class="text-center mb-4"><b>Login</b></h1>
+                    <form action="/login" method="POST" class="needs-validation" novalidate>
+                        <!-- Username Field -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label"><b>Username</b></label>
+                            <input name="username" id="username" type="text" class="form-control"
+                                placeholder="Enter your username" required />
+                            <div class="invalid-feedback">Please enter your username.</div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label"><b>Password</b></label>
+                            <input name="password" id="password" type="password" class="form-control"
+                                placeholder="Enter your password" required />
+                            <div class="invalid-feedback">Please enter your password.</div>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-success w-100">Login</button>
+                        </div>
+                    </form>
+
+                    <!-- Link to Sign up or Forgot Password -->
+                    <div class="mt-3 text-center">
+                        Don't have an account?
+                        <a href="/signup" class="text-decoration-none">Sign up</a>
+                        <br>
+                        <a href="/forgot-password" class="text-decoration-none">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple form validation for custom feedback
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
